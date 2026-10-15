@@ -225,7 +225,10 @@ td.night{color:var(--sky)}
 td.off{color:var(--red)}
 .callnum{margin-top:24px;padding:20px;background:var(--navy);color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .callnum b{font-size:1.7rem;font-weight:800}
-.map{margin-top:20px;aspect-ratio:16/8;background:var(--sky-2) url("images/map.png") center/cover;display:grid;place-items:center;color:var(--navy);text-align:center;font-size:.9rem;border:1px solid var(--line)}
+.map{margin-top:20px;aspect-ratio:16/8;background:var(--sky-2) url("images/map.jpg") center/cover;position:relative;color:var(--navy);font-size:.88rem;border:1px solid var(--line)}
+.map>div{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.95);padding:10px 12px;box-shadow:0 4px 14px rgba(11,42,91,.15);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.map>div .btn{padding:8px 14px;font-size:.82rem}
+@media (max-width:560px){.map{aspect-ratio:4/3;background-position:62% center}.map>div{padding:0;background:none;box-shadow:none}.map>div span{display:none}}
 .way{list-style:none;margin-top:18px}
 .way li{display:grid;grid-template-columns:70px 1fr;padding:8px 0;font-size:.95rem;color:var(--ink-2)}
 .way b{color:var(--navy)}
@@ -375,12 +378,12 @@ footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
     <div class="wrap">
       <div class="sec-head"><small>MEDICAL CENTER</small><h2>진료 안내</h2><p>증상에 맞는 진료 센터를 선택해 주세요.</p></div>
       <div class="depts">
-        <a class="dcard" href="#checkup"><img data-img="dept1.png" data-fallback="tour1.png" alt=""><div class="t"><h3>건강검진센터</h3><p>국가건강검진 · 개인종합검진 · 채용검진</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
-        <a class="dcard" href="#info"><img data-img="dept2.png" data-fallback="tour4.png" alt=""><div class="t"><h3>내시경센터</h3><p>위내시경 · 대장내시경 · 용종 절제</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
-        <a class="dcard" href="#info"><img data-img="dept3.png" data-fallback="tour3.png" alt=""><div class="t"><h3>내과질환센터</h3><p>고혈압 · 당뇨 · 고지혈증 · 갑상선</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
-        <a class="dcard" href="#info"><img data-img="dept4.png" data-fallback="tour4.png" alt=""><div class="t"><h3>초음파검사</h3><p>복부 · 갑상선 · 경동맥 · 유방 초음파</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
-        <a class="dcard" href="#info"><img data-img="dept5.png" data-fallback="tour2.png" alt=""><div class="t"><h3>건강클리닉</h3><p>영양수액 · 금연 · 비만 클리닉</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
-        <a class="dcard" href="#info"><img data-img="dept6.png" data-fallback="tour5.png" alt=""><div class="t"><h3>예방접종</h3><p>독감 · 대상포진 · 폐렴구균 · 간염</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#checkup"><img data-img="dept1.jpg" data-fallback="tour1.png" alt=""><div class="t"><h3>건강검진센터</h3><p>국가건강검진 · 개인종합검진 · 채용검진</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept2.jpg" data-fallback="tour4.png" alt=""><div class="t"><h3>내시경센터</h3><p>위내시경 · 대장내시경 · 용종 절제</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept3.jpg" data-fallback="tour3.png" alt=""><div class="t"><h3>내과질환센터</h3><p>고혈압 · 당뇨 · 고지혈증 · 갑상선</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept4.jpg" data-fallback="tour4.png" alt=""><div class="t"><h3>초음파검사</h3><p>복부 · 갑상선 · 경동맥 · 유방 초음파</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept5.jpg" data-fallback="tour2.png" alt=""><div class="t"><h3>건강클리닉</h3><p>영양수액 · 금연 · 비만 클리닉</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept6.jpg" data-fallback="tour5.png" alt=""><div class="t"><h3>예방접종</h3><p>독감 · 대상포진 · 폐렴구균 · 간염</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
       </div>
     </div>
   </section>
@@ -400,7 +403,7 @@ footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
 
   <!-- ===== 건강검진 배너: images/checkup.png ===== -->
   <section class="wide" id="checkup">
-    <img data-img="checkup.png" data-fallback="tour1.png" alt="">
+    <img data-img="checkup.jpg" data-fallback="tour1.png" alt="">
     <div class="wrap">
       <div>
         <h2>건강검진은<br><span>예약 한 번으로 끝까지</span></h2>
@@ -448,8 +451,9 @@ footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
         </div>
         <div class="box">
           <h3>오시는 길</h3>
-          <div class="map" role="img" aria-label="지도"><div>📍 서울 강남구 테헤란로 000, 4층<br><a class="btn n" style="margin-top:12px" href="https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">네이버 지도 보기</a></div></div>
+          <div class="map" role="img" aria-label="지도"><div><span>📍 서울 강남구 테헤란로 000, 4층</span><a class="btn n" href="https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">네이버 지도 보기</a></div></div>
           <ul class="way">
+            <li><b>주소</b>서울 강남구 테헤란로 000, 4층</li>
             <li><b>지하철</b>2호선 강남역 3번 출구, 도보 3분</li>
             <li><b>버스</b>강남역 정류장 하차</li>
             <li><b>주차</b>건물 지하주차장, 진료 시 2시간 무료</li>
@@ -510,9 +514,9 @@ footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
    이미지가 없으면 title·text로 만든 기본 팝업이 대신 보입니다
    ========================================================= */
 var POPUPS = [
-  {id:'p1', img:'popup1.png', link:'', tag:'공지', title:'2026-2027<br>독감 예방접종 시작', text:'예약 없이 방문 접종 가능합니다.<br><em>평일 09:00 – 18:00</em>'},
-  {id:'p2', img:'popup2.png', link:'', tag:'검진', title:'국가건강검진<br>연말 마감 전 예약하세요', text:'12월은 예약이 몰립니다.<br><em>02-000-0000</em>'},
-  {id:'p3', img:'popup3.png', link:'', tag:'진료안내', title:'화 · 목<br>야간진료 20:30까지', text:'퇴근 후에도 진료받으실 수 있습니다.'}
+  {id:'p1', img:'popup1.jpg', link:'', tag:'공지', title:'2026-2027<br>독감 예방접종 시작', text:'예약 없이 방문 접종 가능합니다.<br><em>평일 09:00 – 18:00</em>'},
+  {id:'p2', img:'popup2.jpg', link:'', tag:'검진', title:'국가건강검진<br>연말 마감 전 예약하세요', text:'12월은 예약이 몰립니다.<br><em>02-000-0000</em>'},
+  {id:'p3', img:'popup3.jpg', link:'', tag:'진료안내', title:'화 · 목<br>야간진료 20:30까지', text:'퇴근 후에도 진료받으실 수 있습니다.'}
 ];
 
 (function(){
