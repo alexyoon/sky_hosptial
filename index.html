@@ -3,446 +3,607 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>하늘내과의원 | 강남역 내과 · 가정의학과</title>
-<meta name="description" content="강남역 3번 출구 도보 3분. 내과·가정의학과·건강검진. 화·목 야간진료, 토요일 진료.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='%231E2B3A'/><path d='M28 16h8v12h12v8H36v12h-8V36H16v-8h12z' fill='%23C9D8E4'/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<title>하늘내과의원 | 강남역 내과 · 건강검진 · 내시경</title>
+<meta name="description" content="강남역 3번 출구 도보 3분. 건강검진, 위내시경, 대장내시경, 초음파, 내과질환, 예방접종, 수액클리닉.">
+<meta name="theme-color" content="#0B2A5B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230B2A5B'/><path d='M28 14h8v14h14v8H36v14h-8V36H14v-8h14z' fill='%2329A3E0'/></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
+/* =========================================================
+   하늘내과의원 — 삼성탑내과 스타일 레이아웃
+   이미지 파일은 images/ 폴더에 아래 이름으로 넣으면 자동 표시
+   (없으면 기존 사진이나 기본 디자인으로 대체)
+   ========================================================= */
 :root{
-  --ink:#1E2B3A; --ink-2:#4A5868; --paper:#FBFBF9; --mist:#E8EEF2;
-  --sky:#3D6E9E; --brass:#A8834C; --line:#D9DFE4;
-  --serif:"Noto Serif KR","Nanum Myeongjo",serif;
-  --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --navy:#0B2A5B; --navy-2:#13387A; --sky:#29A3E0; --sky-2:#E8F4FC;
+  --ink:#1A2233; --ink-2:#5B6577; --line:#E3E7EE; --bg:#F5F7FA; --red:#E23B3B;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.75;font-size:16px;word-break:keep-all;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);background:#fff;line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased}
 img,video{display:block;max-width:100%}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
-.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
-.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;padding:8px 12px}
-h1,h2,h3,.serif{font-family:var(--serif);font-weight:600;letter-spacing:-.02em}
-.site{position:fixed;top:0;left:0;right:0;z-index:40;padding-top:env(safe-area-inset-top,0px);transition:background .3s,color .3s,border-color .3s;color:#fff;border-bottom:1px solid rgba(255,255,255,.18)}
-.site.solid{background:rgba(251,251,249,.96);backdrop-filter:blur(10px);color:var(--ink);border-color:var(--line)}
-.site .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
-.logo{font-family:var(--serif);font-weight:700;font-size:1.3rem;text-decoration:none;letter-spacing:-.03em}
-.gnb ul{display:flex;gap:32px;list-style:none;font-size:.95rem}
-.gnb a{text-decoration:none;opacity:.85}
-.gnb a:hover{opacity:1}
-.head-cta{font-size:.92rem;text-decoration:none;padding:9px 18px;border:1px solid currentColor;border-radius:999px;white-space:nowrap}
-.menu-btn{display:none;background:none;border:0;color:inherit;font-size:1.5rem;cursor:pointer}
-@media (max-width:900px){
-  .gnb{position:fixed;inset:72px 0 auto 0;background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line);display:none}
-  .gnb.open{display:block}
-  .gnb ul{flex-direction:column;gap:0;padding:8px 24px 20px}
-  .gnb li a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
-  .menu-btn{display:block}
-  .head-cta{display:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.wrap{width:min(1320px,100% - 40px);margin-inline:auto}
+
+/* ---------- 팝업 (최대 3개, 왼쪽 위부터 나란히) ---------- */
+.popups{position:fixed;left:20px;top:130px;z-index:200;display:flex;gap:10px;align-items:flex-start}
+.pop{width:480px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.pop .pimg{display:block;width:480px;height:480px;object-fit:cover;background:var(--navy)}
+.pop .pbar{display:flex;justify-content:space-between;background:#222;color:#fff;font-size:.88rem}
+.pop .pbar button{background:none;border:0;color:#fff;padding:11px 14px}
+.pop .pbar button:hover{text-decoration:underline}
+.pop .ph{width:480px;height:480px;display:flex;flex-direction:column;justify-content:center;padding:44px;color:#fff;background:linear-gradient(150deg,var(--navy) 0%,var(--navy-2) 60%,#1E6FB8 100%)}
+.pop .ph small{display:inline-block;align-self:flex-start;background:var(--sky);padding:4px 12px;border-radius:999px;font-weight:700;font-size:.85rem}
+.pop .ph b{font-size:2.1rem;line-height:1.3;margin-top:18px;font-weight:800}
+.pop .ph p{margin-top:14px;color:#cfe0f5}
+.pop .ph em{font-style:normal;color:#FFD54A}
+@media (max-width:1500px){.pop{width:400px}.pop .pimg,.pop .ph{width:400px;height:400px}}
+@media (max-width:1280px){.popups .pop:nth-child(3){display:none}}
+@media (max-width:860px){
+  .popups{left:50%;top:80px;transform:translateX(-50%);width:calc(100% - 32px);max-width:420px}
+  .popups .pop{display:none;width:100%}
+  .popups .pop.first{display:block}
+  .pop .pimg,.pop .ph{width:100%;height:auto;aspect-ratio:1}
+  .pop .ph{padding:32px}
+  .pop .ph b{font-size:1.6rem}
 }
-.cover{position:relative;height:100vh;min-height:620px;color:#fff;overflow:hidden;background:var(--ink)}
-.cover video,.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,42,.5) 0%,rgba(20,30,42,.12) 25%,rgba(20,30,42,.45) 50%,rgba(20,30,42,.88) 100%)}
-.cover h1,.cover p,.now{text-shadow:0 2px 18px rgba(10,20,30,.35)}
-.cover .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:64px}
-@media (max-width:760px){.cover .wrap{padding-bottom:96px}}
-.cover h1{font-size:clamp(2.8rem,8vw,7rem);line-height:1.08;font-weight:600;letter-spacing:-.045em}
-.cover .row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.35);flex-wrap:wrap}
-.cover p{max-width:26em;font-size:1.05rem;color:rgba(255,255,255,.88)}
-.now{display:flex;align-items:baseline;gap:12px;font-size:.98rem}
-.now .pulse{flex:none;width:9px;height:9px;border-radius:50%;background:#7FD3A6;box-shadow:0 0 0 0 rgba(127,211,166,.6);animation:pulse 2.4s infinite;transform:translateY(-1px)}
-.now.closed .pulse{background:#E3A08F;animation:none}
-@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(127,211,166,0)}100%{box-shadow:0 0 0 0 rgba(127,211,166,0)}}
-.cover .btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.98rem;border:1px solid transparent;cursor:pointer;font-family:var(--sans)}
-.btn.light{background:#fff;color:var(--ink)}
-.btn.outline{border-color:rgba(255,255,255,.7);color:#fff}
-.btn.dark{background:var(--ink);color:#fff}
-.btn.kakao{background:#FEE500;color:#191919}
-section{padding:128px 0}
-.kicker{display:block;font-size:.88rem;color:var(--brass);font-weight:600;margin-bottom:18px}
-.sec-title{font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.25}
-.sec-lead{color:var(--ink-2);margin-top:18px;max-width:34em;font-size:1.05rem}
-.feature .grid{display:grid;grid-template-columns:7fr 5fr;gap:72px;align-items:center}
-.feature figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:35% center}
-.feature figcaption{font-size:.85rem;color:var(--ink-2);margin-top:12px}
-.quote{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.5;letter-spacing:-.03em;position:relative;padding-top:56px}
-.quote::before{content:"“";position:absolute;top:-20px;left:-6px;font-size:6rem;line-height:1;color:var(--brass);font-family:var(--serif)}
-.byline{margin-top:28px;font-size:.95rem;color:var(--ink-2)}
-.byline b{color:var(--ink);font-weight:600;margin-right:8px}
-.qa{margin-top:44px;border-top:1px solid var(--line)}
-.qa div{padding:20px 0;border-bottom:1px solid var(--line)}
-.qa h3{font-size:1.05rem;font-family:var(--sans);font-weight:700;letter-spacing:0}
-.qa p{color:var(--ink-2);margin-top:6px;font-size:.98rem}
-@media (max-width:900px){.feature .grid{grid-template-columns:1fr;gap:40px}}
-.dept{background:var(--mist)}
-.dept .head{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:end;margin-bottom:64px}
-.toc{border-top:1px solid var(--ink)}
-.toc a{display:grid;grid-template-columns:5fr 5fr 2fr;gap:32px;align-items:baseline;padding:32px 0;border-bottom:1px solid rgba(30,43,58,.18);text-decoration:none;transition:padding .25s}
-.toc a:hover{padding-left:12px}
-.toc h3{font-size:clamp(1.6rem,3vw,2.4rem)}
-.toc p{color:var(--ink-2)}
-.toc span{font-size:.9rem;color:var(--sky);text-align:right}
-@media (max-width:900px){.dept .head{grid-template-columns:1fr;gap:16px}.toc a{grid-template-columns:1fr;gap:6px}.toc span{text-align:left}}
-.doctors .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px}
-.doc img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;filter:saturate(.92)}
-.doc h3{font-size:1.6rem;margin-top:22px}
-.doc h3 small{font-family:var(--sans);font-size:.88rem;font-weight:600;color:var(--sky);margin-left:10px;letter-spacing:0}
-.doc .field{font-family:var(--serif);font-size:1.05rem;margin-top:6px;color:var(--ink)}
+
+/* ---------- 헤더 ---------- */
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px;gap:20px}
+.badges{display:flex;gap:18px}
+.badge{display:flex;align-items:center;gap:8px;font-size:.78rem;line-height:1.3;color:var(--ink-2)}
+.badge i{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.72rem;color:#fff;background:var(--navy)}
+.badge:nth-child(2) i{background:var(--sky)}
+.badge:nth-child(3) i{background:#C99A2E}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:46px;height:46px}
+.logo b{display:block;font-size:1.65rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1.1}
+.logo b span{color:var(--sky)}
+.logo small{display:block;font-size:.66rem;color:var(--ink-2);letter-spacing:.12em}
+.tel-box{justify-self:end;display:flex;align-items:center;gap:16px}
+.tel-box .ico{display:flex;gap:8px}
+.tel-box .ico a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:700}
+.ico .k{background:#FEE500;color:#3A1D1D}.ico .n{background:#03C75A;color:#fff}
+.tel-box .num small{display:block;font-size:.78rem;color:var(--ink-2);text-align:right}
+.tel-box .num b{font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.gnb-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.gnb-bar.fix{box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.gnb{display:flex;justify-content:center;list-style:none}
+.gnb>li{position:relative}
+.gnb>li>a{display:block;padding:18px 28px;font-weight:700;font-size:1.05rem}
+.gnb>li>a:hover,.gnb>li:focus-within>a{color:var(--sky)}
+.gnb ul{list-style:none;position:absolute;left:50%;top:100%;transform:translateX(-50%);min-width:180px;background:#fff;border-top:3px solid var(--navy);box-shadow:0 10px 24px rgba(0,0,0,.1);display:none;padding:8px 0}
+.gnb>li:hover ul,.gnb>li:focus-within ul{display:block}
+.gnb ul a{display:block;padding:9px 20px;font-size:.93rem;color:var(--ink-2);text-align:center}
+.gnb ul a:hover{color:var(--navy);background:var(--sky-2)}
+.mtop{display:none}
+@media (max-width:1100px){.badges{display:none}.top .wrap{grid-template-columns:auto 1fr}.logo{justify-self:start}.gnb>li>a{padding:16px 16px;font-size:.98rem}}
+@media (max-width:860px){
+  .top{display:none}.gnb-bar{display:none}
+  .mtop{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 16px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+  .mtop .logo svg{width:34px;height:34px}.mtop .logo b{font-size:1.25rem}
+  .mtop button{background:none;border:0;font-size:1.6rem;color:var(--navy);width:44px;height:44px}
+  .drawer{position:fixed;inset:64px 0 0 0;background:#fff;z-index:150;overflow:auto;display:none;padding:8px 20px 100px}
+  .drawer.open{display:block}
+  .drawer details{border-bottom:1px solid var(--line)}
+  .drawer summary{list-style:none;padding:16px 0;font-weight:700;font-size:1.05rem;display:flex;justify-content:space-between}
+  .drawer summary::after{content:"+";color:var(--sky)}
+  .drawer details[open] summary::after{content:"−"}
+  .drawer details a{display:block;padding:8px 12px;color:var(--ink-2)}
+  .drawer details div{padding-bottom:12px}
+}
+@media (min-width:861px){.drawer{display:none !important}}
+
+/* ---------- 메인 슬라이드 ---------- */
+.visual{position:relative;height:640px;overflow:hidden;background:var(--navy)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s}
+.slide.on{opacity:1;z-index:1}
+.slide>img,.slide>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,26,58,.82) 0%,rgba(8,26,58,.45) 45%,rgba(8,26,58,0) 75%)}
+.slide .txt{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;color:#fff}
+.slide .tag{align-self:flex-start;border:1px solid rgba(255,255,255,.6);padding:6px 16px;border-radius:999px;font-size:.92rem}
+.slide h2{font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.2;font-weight:800;margin-top:20px;letter-spacing:-.03em}
+.slide h2 span{color:#7FD0F7}
+.slide p{margin-top:16px;font-size:1.15rem;color:#dbe6f5;max-width:30em}
+.slide.custom::after{display:none}
+.slide.custom .txt{display:none}
+.vnav{position:absolute;z-index:3;left:0;right:0;bottom:96px}
+@media (max-width:860px){.vnav{bottom:28px}}
+.vnav .wrap{display:flex;align-items:center;gap:14px;color:#fff}
+.vnav .num{font-weight:700;font-size:.95rem;min-width:60px}
+.vnav .bar{flex:0 0 220px;height:3px;background:rgba(255,255,255,.3)}
+.vnav .bar i{display:block;height:100%;width:0;background:#fff}
+.vnav button{background:none;border:1px solid rgba(255,255,255,.5);color:#fff;width:36px;height:36px;border-radius:50%}
+@media (max-width:860px){.visual{height:auto;aspect-ratio:3/4;max-height:620px}.slide::after{background:linear-gradient(0deg,rgba(8,26,58,.88) 0%,rgba(8,26,58,.3) 60%,rgba(8,26,58,.1) 100%)}.slide .txt{justify-content:flex-end;padding-bottom:90px}.slide p{font-size:1rem}.vnav .bar{flex-basis:120px}}
+
+/* ---------- 센터 바로가기 ---------- */
+.centers{position:relative;z-index:5;margin-top:-60px}
+.centers ul{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;box-shadow:0 14px 40px rgba(11,42,91,.15)}
+.centers li a{display:flex;flex-direction:column;align-items:center;gap:10px;padding:30px 10px;border-right:1px solid var(--line);text-align:center;transition:background .2s}
+.centers li:last-child a{border-right:0}
+.centers li a:hover{background:var(--navy);color:#fff}
+.centers li a:hover small{color:#bcd3f0}
+.centers svg{width:46px;height:46px;stroke:currentColor;fill:none;stroke-width:1.6;color:var(--navy)}
+.centers li a:hover svg{color:#7FD0F7}
+.centers b{font-size:1.08rem}
+.centers small{font-size:.82rem;color:var(--ink-2)}
+@media (max-width:860px){.centers{margin-top:0}.centers ul{grid-template-columns:repeat(3,1fr);box-shadow:none;border-bottom:1px solid var(--line)}.centers li a{padding:18px 6px;border-bottom:1px solid var(--line)}.centers small{display:none}.centers svg{width:36px;height:36px}.centers b{font-size:.95rem}}
+
+/* ---------- 공통 섹션 ---------- */
+section.sec{padding:110px 0}
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-head small{display:block;color:var(--sky);font-weight:700;letter-spacing:.14em;font-size:.85rem}
+.sec-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:800;color:var(--navy);margin-top:8px;letter-spacing:-.03em}
+.sec-head p{color:var(--ink-2);margin-top:12px}
+@media (max-width:860px){section.sec{padding:72px 0}.sec-head{margin-bottom:36px}}
+
+/* ---------- 병원 장점 띠 배너 ---------- */
+.strip{background:var(--navy);color:#fff}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div{padding:34px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.strip div:last-child{border-right:0}
+.strip b{display:block;font-size:2rem;font-weight:800;color:#7FD0F7}
+.strip span{font-size:.95rem;color:#cfdcf0}
+@media (max-width:860px){.strip .wrap{grid-template-columns:1fr 1fr}.strip div{border-bottom:1px solid rgba(255,255,255,.12)}.strip b{font-size:1.5rem}}
+
+/* ---------- 진료 센터 카드 ---------- */
+.depts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dcard{position:relative;overflow:hidden;aspect-ratio:4/3.2;background:var(--navy);color:#fff}
+.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.dcard:hover img{transform:scale(1.06)}
+.dcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,26,58,.9) 0%,rgba(8,26,58,.2) 60%,rgba(8,26,58,0) 100%)}
+.dcard .t{position:absolute;left:28px;right:28px;bottom:26px;z-index:2}
+.dcard h3{font-size:1.5rem;font-weight:800}
+.dcard p{font-size:.93rem;color:#d3def0;margin-top:4px}
+.dcard .go{display:inline-flex;margin-top:14px;border:1px solid rgba(255,255,255,.6);font-size:.85rem}
+.dcard .go span{padding:6px 14px}
+.dcard .go span+span{background:#fff;color:var(--navy);font-weight:700}
+@media (max-width:960px){.depts{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.depts{grid-template-columns:1fr}}
+
+/* ---------- 의료진 ---------- */
+.doctors{background:var(--bg)}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.doc{background:#fff;border:1px solid var(--line)}
+.doc img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 15%;background:var(--sky-2)}
+.doc .i{padding:24px 26px 28px}
+.doc .role{color:var(--sky);font-weight:700;font-size:.9rem}
+.doc h3{font-size:1.45rem;font-weight:800;color:var(--navy);margin-top:2px}
 .doc ul{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink-2)}
-.note{margin-top:40px;font-size:.82rem;color:var(--ink-2)}
-@media (max-width:900px){.doctors .grid{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.doctors .grid{grid-template-columns:1fr}}
-.space{background:var(--ink);color:#fff}
-.space .sec-lead{color:rgba(255,255,255,.75)}
-.space .kicker{color:#D8BB8A}
-.space .film{margin-top:64px;position:relative;aspect-ratio:21/9;overflow:hidden;background:#000}
-.space .film video,.space .film img{width:100%;height:100%;object-fit:cover}
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
-.strip figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.strip figcaption{font-size:.88rem;color:rgba(255,255,255,.72);margin-top:10px}
-@media (max-width:760px){.space .film{aspect-ratio:4/3}.strip{grid-template-columns:1fr 1fr}}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:64px}
-.step{border-top:1px solid var(--ink);padding-top:24px}
-.step b{font-family:var(--serif);font-size:2.6rem;color:var(--brass);font-weight:400;line-height:1}
-.step h3{font-size:1.3rem;margin-top:18px}
-.step p{color:var(--ink-2);margin-top:8px;font-size:.96rem}
-@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.steps{grid-template-columns:1fr}}
-.book{background:var(--mist)}
-.book .grid{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:start}
-.book ul{list-style:none;margin-top:28px}
-.book li{padding:12px 0;border-bottom:1px solid rgba(30,43,58,.15);color:var(--ink-2)}
-.card{background:#fff;padding:40px;border:1px solid var(--line)}
-.card label{display:block;font-size:.88rem;font-weight:600;margin:20px 0 8px}
-.card label:first-child{margin-top:0}
-.card input[type=text],.card input[type=tel],.card input[type=date],.card select{width:100%;padding:13px 14px;border:1px solid var(--line);background:var(--paper);font:inherit;color:inherit;border-radius:0}
-.card .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.slots{display:flex;flex-wrap:wrap;gap:8px}
-.slots label{margin:0;font-weight:500}
-.slots input{position:absolute;opacity:0}
-.slots span{display:block;padding:9px 14px;border:1px solid var(--line);cursor:pointer;font-size:.92rem}
-.slots input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
-.slots input:focus-visible+span{outline:2px solid var(--brass);outline-offset:2px}
-.agree{display:flex !important;gap:10px;align-items:flex-start;font-weight:400 !important;font-size:.85rem !important;color:var(--ink-2)}
-.agree input{margin-top:5px}
-.card .btn{width:100%;margin-top:26px;border-radius:0;padding:16px}
-.done{display:none;text-align:center;padding:40px 0}
-.done b{font-family:var(--serif);font-size:1.5rem}
-@media (max-width:900px){.book .grid{grid-template-columns:1fr;gap:48px}.card{padding:28px 22px}}
-.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px}
-table.hours{width:100%;border-collapse:collapse;border-top:1px solid var(--ink)}
-.hours th,.hours td{padding:18px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:400}
-.hours th{width:38%;color:var(--ink-2)}
-.hours tr.today td,.hours tr.today th{color:var(--ink);font-weight:700}
-.hours tr.today th::after{content:"오늘";font-size:.72rem;font-weight:600;color:#fff;background:var(--sky);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
-.hours .night{color:var(--sky)}
-.addr{font-family:var(--serif);font-size:1.5rem;line-height:1.45}
-.way{list-style:none;margin-top:24px}
-.way li{padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink-2);display:grid;grid-template-columns:72px 1fr}
-.way b{color:var(--ink);font-weight:600}
-.visit .btn{margin-top:28px}
-@media (max-width:900px){.visit .grid{grid-template-columns:1fr;gap:48px}}
-.news{border-top:1px solid var(--line)}
-.news .grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
-.news h2{font-size:1.8rem;margin-bottom:24px}
-.list a{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.doc li::before{content:"· "}
+.note{text-align:center;margin-top:28px;font-size:.82rem;color:var(--ink-2)}
+@media (max-width:960px){.docs{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.docs{grid-template-columns:1fr}}
+
+/* ---------- 검진 배너 ---------- */
+.wide{position:relative;color:#fff;background:var(--navy);overflow:hidden}
+.wide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.wide .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:100px 0}
+.wide h2{font-size:clamp(1.8rem,3.4vw,2.7rem);font-weight:800;line-height:1.3}
+.wide h2 span{color:#7FD0F7}
+.wide p{margin-top:16px;color:#d3def0}
+.wide .btns{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;font-weight:700}
+.btn.w{background:#fff;color:var(--navy)}
+.btn.o{border:1px solid rgba(255,255,255,.7)}
+.btn.n{background:var(--navy);color:#fff}
+.chk{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chk li{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:20px}
+.chk b{display:block;font-size:1.1rem}
+.chk span{font-size:.88rem;color:#c5d4ea}
+@media (max-width:860px){.wide .wrap{grid-template-columns:1fr;gap:32px;padding:72px 0}}
+
+/* ---------- 둘러보기 ---------- */
+.tour{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:12px}
+.tour figure{position:relative;overflow:hidden;background:var(--sky-2)}
+.tour figure:first-child{grid-row:span 2}
+.tour img,.tour video{width:100%;height:100%;object-fit:cover}
+.tour figcaption{position:absolute;left:0;bottom:0;background:rgba(11,42,91,.85);color:#fff;font-size:.85rem;padding:6px 14px}
+@media (max-width:860px){.tour{grid-template-columns:1fr 1fr;grid-template-rows:auto}.tour figure{aspect-ratio:1}.tour figure:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}}
+
+/* ---------- 진료시간·오시는 길 ---------- */
+.info{background:var(--bg)}
+.info .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.box{background:#fff;border:1px solid var(--line);padding:40px}
+.box h3{font-size:1.4rem;font-weight:800;color:var(--navy);display:flex;justify-content:space-between;align-items:center}
+.box h3 em{font-style:normal;font-size:.85rem;background:var(--sky);color:#fff;padding:4px 12px;border-radius:999px}
+.box h3 em.off{background:#9aa3b2}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{padding:14px 4px;border-bottom:1px solid var(--line);text-align:left}
+th{width:36%;color:var(--ink-2);font-weight:500}
+td{font-weight:700}
+tr.today{background:var(--sky-2)}
+td.night{color:var(--sky)}
+td.off{color:var(--red)}
+.callnum{margin-top:24px;padding:20px;background:var(--navy);color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.callnum b{font-size:1.7rem;font-weight:800}
+.map{margin-top:20px;aspect-ratio:16/8;background:var(--sky-2) url("images/map.png") center/cover;display:grid;place-items:center;color:var(--navy);text-align:center;font-size:.9rem;border:1px solid var(--line)}
+.way{list-style:none;margin-top:18px}
+.way li{display:grid;grid-template-columns:70px 1fr;padding:8px 0;font-size:.95rem;color:var(--ink-2)}
+.way b{color:var(--navy)}
+@media (max-width:860px){.info .grid{grid-template-columns:1fr}.box{padding:26px 20px}}
+
+/* ---------- 소식 ---------- */
+.news .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.news h3{font-size:1.4rem;font-weight:800;color:var(--navy);padding-bottom:14px;border-bottom:2px solid var(--navy)}
+.list a{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
 .list time{color:var(--ink-2);font-size:.88rem;white-space:nowrap}
-details{border-bottom:1px solid var(--line)}
-summary{padding:16px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-weight:500}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--brass);font-size:1.3rem;line-height:1}
-details[open] summary::after{content:"−"}
-details p{padding:0 0 18px;color:var(--ink-2)}
-@media (max-width:900px){.news .grid{grid-template-columns:1fr;gap:56px}}
-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:72px 0 calc(48px + env(safe-area-inset-bottom,0px));font-size:.88rem}
-footer .logo{color:#fff;font-size:1.6rem;display:block;margin-bottom:20px}
-footer .legal{margin-top:24px;font-size:.78rem;color:rgba(255,255,255,.5);max-width:60em}
+details.faq{border-bottom:1px solid var(--line)}
+details.faq summary{padding:15px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-weight:600}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--sky);font-size:1.3rem;line-height:1}
+details.faq[open] summary::after{content:"−"}
+details.faq p{padding:0 0 16px;color:var(--ink-2)}
+@media (max-width:860px){.news .grid{grid-template-columns:1fr;gap:48px}}
+
+/* ---------- 푸터 ---------- */
+footer{background:#0A1A36;color:#9fb0cc;padding:56px 0 calc(48px + env(safe-area-inset-bottom,0px));font-size:.88rem}
+footer .logo b{color:#fff}
+footer .logo small{color:#8ea2c4}
+footer .meta{margin-top:20px;line-height:1.9}
+footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
+
+/* ---------- 오른쪽 퀵메뉴 ---------- */
+.quick{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.14);border-radius:40px;overflow:hidden}
+.quick a{width:78px;padding:14px 4px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.74rem;font-weight:600;border-bottom:1px solid var(--line)}
+.quick a:last-child{border-bottom:0}
+.quick a i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.95rem;background:var(--sky-2);color:var(--navy)}
+.quick a.k i{background:#FEE500;color:#3A1D1D}
+.quick a.top{background:var(--navy);color:#fff}
+.quick a.top i{background:transparent;color:#fff}
+@media (max-width:1100px){.quick{display:none}}
+
+/* ---------- 모바일 하단 바 ---------- */
 .mbar{display:none}
-@media (max-width:760px){
-  section{padding:88px 0}
-  .mbar{display:grid;grid-template-columns:1fr 1fr 1.4fr;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-  .mbar a{text-align:center;padding:15px 0;text-decoration:none;font-weight:600;font-size:.95rem}
-  .mbar .c{background:var(--ink);color:#fff}
+@media (max-width:860px){
+  .mbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:120;background:var(--navy);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .mbar a{color:#fff;text-align:center;padding:14px 0;font-size:.9rem;font-weight:700;border-right:1px solid rgba(255,255,255,.15)}
+  .mbar a:last-child{border-right:0;background:var(--sky)}
   footer{padding-bottom:110px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.now .pulse{animation:none}.toc a{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide{transition:none}.dcard img{transition:none}}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">본문 바로가기</a>
-<header class="site" id="site">
-  <div class="wrap">
-    <a class="logo" href="#top">하늘내과의원</a>
-    <nav class="gnb" id="gnb" aria-label="주 메뉴">
-      <ul>
-        <li><a href="#story">원장 인터뷰</a></li>
-        <li><a href="#dept">진료과목</a></li>
-        <li><a href="#doctors">의료진</a></li>
-        <li><a href="#space">공간</a></li>
-        <li><a href="#visit">오시는 길</a></li>
-      </ul>
-    </nav>
-    <a class="head-cta" href="#book">진료 예약</a>
-    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">☰</button>
+
+<!-- ===== 팝업: 이미지는 images/popup1.png ~ popup3.png (정사각형 권장 500x500 이상) ===== -->
+<div class="popups" id="popups" aria-label="공지 팝업"></div>
+
+<!-- ===== 헤더 ===== -->
+<div class="top"><div class="wrap">
+  <div class="badges">
+    <div class="badge"><i>인증</i><span>보건복지부 인증<br>건강검진기관</span></div>
+    <div class="badge"><i>내시경</i><span>대한소화기내시경학회<br>인증 내시경실</span></div>
+    <div class="badge"><i>우수</i><span>국가건강검진<br>평가 우수기관</span></div>
   </div>
-</header>
-<main id="main">
-  <section class="cover" id="top" style="padding:0">
-    <img src="images/hero.png" alt="" aria-hidden="true">
-    <video id="heroVideo" muted loop playsinline autoplay preload="metadata" poster="images/hero.png" aria-hidden="true"></video>
+  <a class="logo" href="#top" aria-label="하늘내과의원 처음으로">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0B2A5B"/><path d="M28 14h8v14h14v8H36v14h-8V36H14v-8h14z" fill="#29A3E0"/></svg>
+    <span><b>하늘<span>내과</span>의원</b><small>HANEUL INTERNAL MEDICINE</small></span>
+  </a>
+  <div class="tel-box">
+    <div class="ico"><a class="k" href="#" aria-label="카카오톡 상담">톡</a><a class="n" href="#" aria-label="네이버 예약">N</a></div>
+    <div class="num"><small>진료 · 검진 예약</small><b>02-000-0000</b></div>
+  </div>
+</div></div>
+
+<nav class="gnb-bar" id="gnbBar" aria-label="주 메뉴">
+  <ul class="gnb" id="gnb">
+    <li><a href="#about">병원소개</a><ul><li><a href="#about">병원소개</a></li><li><a href="#doctors">의료진소개</a></li><li><a href="#tour">병원둘러보기</a></li><li><a href="#info">진료시간</a></li><li><a href="#info">오시는길</a></li></ul></li>
+    <li><a href="#checkup">건강검진센터</a><ul><li><a href="#checkup">국가건강검진</a></li><li><a href="#checkup">개인종합검진</a></li><li><a href="#checkup">기업·채용검진</a></li></ul></li>
+    <li><a href="#centers">내시경센터</a><ul><li><a href="#centers">위내시경</a></li><li><a href="#centers">대장내시경</a></li><li><a href="#centers">수면내시경</a></li></ul></li>
+    <li><a href="#centers">내과질환센터</a><ul><li><a href="#centers">고혈압·당뇨</a></li><li><a href="#centers">갑상선질환</a></li><li><a href="#centers">소화기질환</a></li></ul></li>
+    <li><a href="#centers">건강클리닉</a><ul><li><a href="#centers">수액클리닉</a></li><li><a href="#centers">금연클리닉</a></li><li><a href="#centers">비만클리닉</a></li></ul></li>
+    <li><a href="#centers">예방접종</a></li>
+    <li><a href="#news">미디어센터</a><ul><li><a href="#news">병원소식</a></li><li><a href="#news">자주 묻는 질문</a></li></ul></li>
+  </ul>
+</nav>
+
+<div class="mtop">
+  <a class="logo" href="#top" aria-label="하늘내과의원 처음으로">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0B2A5B"/><path d="M28 14h8v14h14v8H36v14h-8V36H14v-8h14z" fill="#29A3E0"/></svg>
+    <span><b>하늘<span>내과</span>의원</b></span>
+  </a>
+  <button type="button" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer">☰</button>
+</div>
+<div class="drawer" id="drawer"></div>
+
+<main id="top">
+  <!-- ===== 메인 슬라이드: images/main1.png ~ main3.png (1920x640 권장) ===== -->
+  <section class="visual" id="visual" aria-roledescription="carousel" aria-label="메인 소개">
+    <div class="slide on" data-img="main1.png" data-fallback="hero.png" data-video="hero.mp4">
+      <div class="wrap txt">
+        <span class="tag">강남역 3번 출구 도보 3분</span>
+        <h2>기다림은 짧게,<br><span>설명은 충분하게</span></h2>
+        <p>내과 전문의가 진료부터 검사, 결과 설명까지 직접 책임집니다.</p>
+      </div>
+    </div>
+    <div class="slide" data-img="main2.png" data-fallback="tour4.png">
+      <div class="wrap txt">
+        <span class="tag">내시경센터</span>
+        <h2>편안한 수면내시경,<br><span>당일 검사 · 당일 설명</span></h2>
+        <p>소화기내시경 세부전문의가 위·대장내시경을 직접 시행합니다.</p>
+      </div>
+    </div>
+    <div class="slide" data-img="main3.png" data-fallback="tour1.png">
+      <div class="wrap txt">
+        <span class="tag">건강검진센터</span>
+        <h2>국가검진부터 종합검진까지<br><span>한 번의 방문으로</span></h2>
+        <p>예약제로 운영해 대기 없이 검진하고, 결과는 전문의가 상담해 드립니다.</p>
+      </div>
+    </div>
+    <div class="vnav"><div class="wrap">
+      <span class="num" id="vnum">01 / 03</span>
+      <span class="bar"><i id="vbar"></i></span>
+      <button type="button" id="vprev" aria-label="이전 슬라이드">‹</button>
+      <button type="button" id="vstop" aria-label="자동 넘김 멈춤">Ⅱ</button>
+      <button type="button" id="vnext" aria-label="다음 슬라이드">›</button>
+    </div></div>
+  </section>
+
+  <!-- ===== 센터 바로가기 ===== -->
+  <nav class="centers" id="centers" aria-label="진료센터 바로가기"><div class="wrap"><ul>
+    <li><a href="#checkup"><svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="3"/><path d="M17 6v4h14V6M16 22h16M16 29h16M16 36h10"/></svg><b>건강검진센터</b><small>국가 · 종합 · 채용검진</small></a></li>
+    <li><a href="#depts"><svg viewBox="0 0 48 48"><path d="M8 40c8 0 10-6 10-12s4-10 10-10 10 4 10 10"/><circle cx="38" cy="28" r="4"/><path d="M8 40h6"/></svg><b>내시경센터</b><small>위 · 대장 · 수면내시경</small></a></li>
+    <li><a href="#depts"><svg viewBox="0 0 48 48"><path d="M24 40S8 30 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 12-16 22-16 22z"/><path d="M14 22h6l3-5 4 10 3-5h4"/></svg><b>내과질환센터</b><small>고혈압 · 당뇨 · 갑상선</small></a></li>
+    <li><a href="#depts"><svg viewBox="0 0 48 48"><path d="M20 6h8v6h-8zM18 12h12l2 8v20H16V20z"/><path d="M24 26v8M20 30h8"/></svg><b>건강클리닉</b><small>수액 · 금연 · 비만</small></a></li>
+    <li><a href="#depts"><svg viewBox="0 0 48 48"><path d="M30 8l10 10M35 13L17 31l-6-6L29 7M14 28l-6 6M11 25l-3 3 6 6 3-3M8 40l4-4"/></svg><b>예방접종</b><small>독감 · 대상포진 · 간염</small></a></li>
+  </ul></div></nav>
+
+  <!-- ===== 병원 소개 ===== -->
+  <section class="sec" id="about">
     <div class="wrap">
-      <h1>기다림은 짧게,<br>설명은 충분하게.</h1>
-      <div class="row">
-        <div>
-          <div class="now" id="now"><span class="pulse"></span><span id="nowText">진료시간 확인 중</span></div>
-          <p style="margin-top:10px">강남역 3번 출구에서 3분. 내과와 가정의학과 전문의가 증상 상담부터 검사, 결과 설명까지 한 자리에서 이어 갑니다.</p>
-        </div>
-        <div class="btns">
-          <a class="btn light" href="#book">온라인 예약</a>
-          <a class="btn outline" href="tel:020000000">02-000-0000</a>
-        </div>
+      <div class="sec-head"><small>ABOUT HANEUL</small><h2>믿고 찾는 강남역 내과</h2><p>정확한 진단과 충분한 설명, 하늘내과의원이 지켜 온 원칙입니다.</p></div>
+    </div>
+    <div class="strip"><div class="wrap">
+      <div><b>3인</b><span>내과·가정의학과 전문의</span></div>
+      <div><b>당일</b><span>내시경 검사 · 결과 설명</span></div>
+      <div><b>20:30</b><span>화·목 야간진료</span></div>
+      <div><b>2시간</b><span>진료 시 무료 주차</span></div>
+    </div></div>
+  </section>
+
+  <!-- ===== 진료 센터 카드: images/dept1.png ~ dept6.png ===== -->
+  <section class="sec" id="depts" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><small>MEDICAL CENTER</small><h2>진료 안내</h2><p>증상에 맞는 진료 센터를 선택해 주세요.</p></div>
+      <div class="depts">
+        <a class="dcard" href="#checkup"><img data-img="dept1.png" data-fallback="tour1.png" alt=""><div class="t"><h3>건강검진센터</h3><p>국가건강검진 · 개인종합검진 · 채용검진</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept2.png" data-fallback="tour4.png" alt=""><div class="t"><h3>내시경센터</h3><p>위내시경 · 대장내시경 · 용종 절제</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept3.png" data-fallback="tour3.png" alt=""><div class="t"><h3>내과질환센터</h3><p>고혈압 · 당뇨 · 고지혈증 · 갑상선</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept4.png" data-fallback="tour4.png" alt=""><div class="t"><h3>초음파검사</h3><p>복부 · 갑상선 · 경동맥 · 유방 초음파</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept5.png" data-fallback="tour2.png" alt=""><div class="t"><h3>건강클리닉</h3><p>영양수액 · 금연 · 비만 클리닉</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
+        <a class="dcard" href="#info"><img data-img="dept6.png" data-fallback="tour5.png" alt=""><div class="t"><h3>예방접종</h3><p>독감 · 대상포진 · 폐렴구균 · 간염</p><span class="go"><span>자세히보기</span><span>GO</span></span></div></a>
       </div>
     </div>
   </section>
-  <section class="feature" id="story">
-    <div class="wrap grid">
-      <figure>
-        <img src="images/doctor1.png" alt="환자에게 태블릿으로 검사 결과를 설명하는 김하늘 대표원장" loading="lazy">
-        <figcaption>진료실에서 검사 결과를 화면으로 함께 보며 설명하는 김하늘 대표원장</figcaption>
-      </figure>
-      <div>
-        <span class="kicker">원장 인터뷰</span>
-        <p class="quote">결과지를 건네는 것으로 진료가 끝나지 않습니다. 숫자 하나하나가 내 몸에 어떤 의미인지 이해하고 돌아가실 때까지 설명합니다.</p>
-        <p class="byline"><b>김하늘</b>대표원장, 내과 전문의</p>
-        <div class="qa">
-          <div><h3>진료 시간이 길어지지는 않나요?</h3><p>예약제로 운영해 대기는 줄이고, 진료실 안에서의 시간은 충분히 씁니다.</p></div>
-          <div><h3>야간진료를 하는 이유가 있나요?</h3><p>퇴근 후에야 병원에 올 수 있는 직장인이 많아 화·목은 저녁 8시 30분까지 진료합니다.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="dept" id="dept">
+
+  <!-- ===== 의료진 ===== -->
+  <section class="sec doctors" id="doctors">
     <div class="wrap">
-      <div class="head">
-        <div><span class="kicker">진료과목</span><h2 class="sec-title">어디가 불편하신가요</h2></div>
-        <p class="sec-lead">증상이 애매하다면 접수처에 말씀해 주세요. 맞는 진료로 안내해 드립니다.</p>
-      </div>
-      <div class="toc">
-        <a href="#book"><h3>내과</h3><p>감기와 장염 같은 일상 질환부터 고혈압, 당뇨, 갑상선 같은 만성질환까지 꾸준히 관리합니다.</p><span>고혈압·당뇨 · 소화기</span></a>
-        <a href="#book"><h3>가정의학과</h3><p>가족 단위 주치의 진료, 예방접종, 만성피로와 체중, 생활 습관 상담을 합니다.</p><span>예방접종 · 생활 상담</span></a>
-        <a href="#book"><h3>건강검진</h3><p>국가검진과 기업·개인 맞춤 검진을 예약제로 진행하고, 결과는 전문의가 직접 설명합니다.</p><span>국가검진 · 기업검진</span></a>
-        <a href="#book"><h3>검사센터</h3><p>혈액검사, 복부·갑상선 초음파, 위·대장 내시경을 당일 안내합니다.</p><span>초음파 · 내시경</span></a>
-      </div>
-    </div>
-  </section>
-  <section class="doctors" id="doctors">
-    <div class="wrap">
-      <span class="kicker">의료진</span>
-      <h2 class="sec-title">진료를 맡는 사람들</h2>
-      <p class="sec-lead">전문 분야와 경력을 있는 그대로 소개합니다.</p>
-      <div class="grid">
-        <article class="doc">
-          <img src="images/doctor1.png" alt="김하늘 대표원장" loading="lazy" style="object-position:30% 30%">
-          <h3>김하늘<small>대표원장</small></h3>
-          <p class="field">내과 전문의</p>
-          <ul><li>○○대학교 의과대학 졸업</li><li>○○대학교병원 내과 전공의 수료</li><li>대한내과학회 정회원</li></ul>
-        </article>
-        <article class="doc">
-          <img src="images/doctor2.png" alt="이서준 원장" loading="lazy">
-          <h3>이서준<small>원장</small></h3>
-          <p class="field">가정의학과 전문의</p>
-          <ul><li>○○대학교 의과대학 졸업</li><li>○○병원 가정의학과 전공의 수료</li><li>대한가정의학회 정회원</li></ul>
-        </article>
-        <article class="doc">
-          <img src="images/doctor3.png" alt="박민준 원장" loading="lazy">
-          <h3>박민준<small>원장</small></h3>
-          <p class="field">내과 전문의, 소화기</p>
-          <ul><li>○○대학교 의과대학 졸업</li><li>○○대학교병원 소화기내과 임상강사</li><li>대한소화기내시경학회 정회원</li></ul>
-        </article>
+      <div class="sec-head"><small>DOCTORS</small><h2>의료진 소개</h2><p>각 분야 전문의가 직접 진료합니다.</p></div>
+      <div class="docs">
+        <article class="doc"><img src="images/doctor1.png" alt="김하늘 대표원장" loading="lazy" style="object-position:30% 20%"><div class="i"><span class="role">대표원장 · 내과 전문의</span><h3>김하늘</h3><ul><li>○○대학교 의과대학 졸업</li><li>○○대학교병원 내과 전공의 수료</li><li>대한내과학회 정회원</li></ul></div></article>
+        <article class="doc"><img src="images/doctor2.png" alt="이서준 원장" loading="lazy"><div class="i"><span class="role">원장 · 가정의학과 전문의</span><h3>이서준</h3><ul><li>○○대학교 의과대학 졸업</li><li>○○병원 가정의학과 전공의 수료</li><li>대한가정의학회 정회원</li></ul></div></article>
+        <article class="doc"><img src="images/doctor3.png" alt="박민준 원장" loading="lazy"><div class="i"><span class="role">원장 · 소화기내과 전문의</span><h3>박민준</h3><ul><li>○○대학교 의과대학 졸업</li><li>○○대학교병원 소화기내과 임상강사</li><li>대한소화기내시경학회 정회원</li></ul></div></article>
       </div>
       <p class="note">※ 데모용 가상 정보입니다. 실제 적용 시 면허·전문의 자격 등 사실에 근거한 경력만 기재해야 합니다.</p>
     </div>
   </section>
-  <section class="space" id="space">
+
+  <!-- ===== 건강검진 배너: images/checkup.png ===== -->
+  <section class="wide" id="checkup">
+    <img data-img="checkup.png" data-fallback="tour1.png" alt="">
     <div class="wrap">
-      <span class="kicker">공간</span>
-      <h2 class="sec-title">테헤란로 4층, 창이 넓은 병원</h2>
-      <p class="sec-lead">대기실에서도 하늘이 보이도록 창가를 비워 두었습니다. 진료를 기다리는 시간이 조금은 편안하도록.</p>
-      <div class="film">
-        <img src="images/tour1.png" alt="" aria-hidden="true" style="position:absolute;inset:0">
-        <video id="tourVideo" muted loop playsinline preload="metadata" poster="images/tour1.png" aria-label="병원 내부를 둘러보는 영상" style="position:relative"></video>
-      </div>
-      <div class="strip">
-        <figure><img src="images/tour2.png" alt="창가 쪽 대기 공간" loading="lazy"><figcaption>대기 공간</figcaption></figure>
-        <figure><img src="images/tour3.png" alt="창밖으로 도시가 보이는 진료실" loading="lazy"><figcaption>진료실</figcaption></figure>
-        <figure><img src="images/tour4.png" alt="초음파 장비가 있는 검사실" loading="lazy"><figcaption>검사실</figcaption></figure>
-        <figure><img src="images/tour5.png" alt="밝은 로비와 접수 데스크" loading="lazy"><figcaption>로비와 접수</figcaption></figure>
-      </div>
-    </div>
-  </section>
-  <section id="process">
-    <div class="wrap">
-      <span class="kicker">처음 오시는 분께</span>
-      <h2 class="sec-title">진료는 이렇게 진행됩니다</h2>
-      <div class="steps">
-        <div class="step"><b>1</b><h3>예약</h3><p>온라인, 전화, 카카오톡 중 편한 방법으로 시간을 정합니다.</p></div>
-        <div class="step"><b>2</b><h3>접수</h3><p>신분증이나 모바일 건강보험증을 준비해 주세요.</p></div>
-        <div class="step"><b>3</b><h3>상담과 검사</h3><p>증상을 확인하고 필요한 검사는 당일 진행합니다.</p></div>
-        <div class="step"><b>4</b><h3>결과 설명</h3><p>치료 방법과 생활 속 주의사항까지 설명해 드립니다.</p></div>
-      </div>
-    </div>
-  </section>
-  <section class="book" id="book">
-    <div class="wrap grid">
       <div>
-        <span class="kicker">온라인 예약</span>
-        <h2 class="sec-title">원하는 시간을<br>먼저 정하세요</h2>
-        <p class="sec-lead">진료과와 시간, 연락처만 남기시면 확인 문자를 보내 드립니다.</p>
-        <ul>
-          <li>예약하시면 대기 없이 바로 진료실로 안내합니다.</li>
-          <li>변경과 취소는 전화나 카카오톡으로 알려 주세요.</li>
-          <li>당일 예약도 빈 시간이 있으면 가능합니다.</li>
-        </ul>
-        <p style="margin-top:28px"><a class="btn kakao" href="#">카카오톡으로 문의하기</a></p>
+        <h2>건강검진은<br><span>예약 한 번으로 끝까지</span></h2>
+        <p>접수부터 검사, 결과 상담까지 한 층에서 이어집니다. 예약하시면 대기 없이 바로 검진을 시작합니다.</p>
+        <div class="btns"><a class="btn w" href="tel:020000000">검진 예약 02-000-0000</a><a class="btn o" href="#">카카오톡 상담</a></div>
       </div>
-      <form class="card" id="bookForm" novalidate>
-        <div id="formBody">
-          <label for="dept">진료과</label>
-          <select id="dept" required><option value="">선택하세요</option><option>내과</option><option>가정의학과</option><option>건강검진</option><option>검사(초음파·내시경)</option></select>
-          <div class="row">
-            <div><label for="date">희망 날짜</label><input type="date" id="date" required></div>
-            <div><label for="name">이름</label><input type="text" id="name" autocomplete="name" required></div>
-          </div>
-          <label id="tl">희망 시간</label>
-          <div class="slots" role="radiogroup" aria-labelledby="tl">
-            <label><input type="radio" name="t" value="09:30" checked><span>09:30</span></label>
-            <label><input type="radio" name="t" value="10:30"><span>10:30</span></label>
-            <label><input type="radio" name="t" value="11:30"><span>11:30</span></label>
-            <label><input type="radio" name="t" value="14:30"><span>14:30</span></label>
-            <label><input type="radio" name="t" value="15:30"><span>15:30</span></label>
-            <label><input type="radio" name="t" value="17:00"><span>17:00</span></label>
-            <label><input type="radio" name="t" value="19:30"><span>19:30 (화·목)</span></label>
-          </div>
-          <label for="tel">연락처</label>
-          <input type="tel" id="tel" placeholder="010-0000-0000" autocomplete="tel" required>
-          <label class="agree"><input type="checkbox" id="agree" required><span>개인정보 수집·이용에 동의합니다. (이름, 연락처 / 예약 확인 목적 / 예약 처리 후 지체 없이 파기)</span></label>
-          <button class="btn dark" type="submit">예약 신청하기</button>
-        </div>
-        <div class="done" id="done" role="status"><b>예약 신청이 접수되었습니다</b><p style="margin-top:10px;color:var(--ink-2)">확인 문자를 보내 드립니다. (데모: 실제로 전송되지 않습니다)</p></div>
-      </form>
+      <ul class="chk">
+        <li><b>국가건강검진</b><span>일반검진 · 5대 암검진</span></li>
+        <li><b>개인종합검진</b><span>나이·성별 맞춤 구성</span></li>
+        <li><b>기업 · 채용검진</b><span>단체 일정 조율 가능</span></li>
+        <li><b>결과 상담</b><span>전문의 1:1 설명</span></li>
+      </ul>
     </div>
   </section>
-  <section class="visit" id="visit">
+
+  <!-- ===== 병원 둘러보기 ===== -->
+  <section class="sec" id="tour">
     <div class="wrap">
-      <span class="kicker">오시는 길</span>
-      <h2 class="sec-title">진료시간과 위치</h2>
+      <div class="sec-head"><small>HOSPITAL TOUR</small><h2>병원 둘러보기</h2><p>밝고 쾌적한 공간에서 편안하게 진료받으세요.</p></div>
+      <div class="tour">
+        <figure><img src="images/tour1.png" alt="로비와 접수 데스크" loading="lazy"><video id="tourVideo" muted loop playsinline preload="none" aria-hidden="true" style="position:absolute;inset:0"></video><figcaption>로비 · 접수</figcaption></figure>
+        <figure><img src="images/tour2.png" alt="대기 공간" loading="lazy"><figcaption>대기실</figcaption></figure>
+        <figure><img src="images/tour3.png" alt="진료실" loading="lazy"><figcaption>진료실</figcaption></figure>
+        <figure><img src="images/tour4.png" alt="검사실" loading="lazy"><figcaption>검사실</figcaption></figure>
+        <figure><img src="images/tour5.png" alt="회복실" loading="lazy"><figcaption>회복실</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 진료시간 · 오시는 길 ===== -->
+  <section class="sec info" id="info">
+    <div class="wrap">
+      <div class="sec-head"><small>INFORMATION</small><h2>진료시간 · 오시는 길</h2></div>
       <div class="grid">
-        <table class="hours">
-          <tbody>
+        <div class="box">
+          <h3>진료시간 <em id="openTag">확인 중</em></h3>
+          <table><tbody>
             <tr data-days="1,3,5"><th>월 · 수 · 금</th><td>09:00 – 18:00</td></tr>
-            <tr data-days="2,4"><th>화 · 목</th><td class="night">09:00 – 20:30 야간진료</td></tr>
-            <tr data-days="6"><th>토요일</th><td>09:00 – 13:00</td></tr>
+            <tr data-days="2,4"><th>화 · 목</th><td class="night">09:00 – 20:30 (야간진료)</td></tr>
+            <tr data-days="6"><th>토요일</th><td>09:00 – 13:00 (점심시간 없음)</td></tr>
             <tr><th>점심시간</th><td>평일 13:00 – 14:00</td></tr>
-            <tr data-days="0"><th>일요일 · 공휴일</th><td>휴진</td></tr>
-          </tbody>
-        </table>
-        <div>
-          <p class="addr">서울 강남구 테헤란로 000<br>스카이타워 4층</p>
+            <tr data-days="0"><th>일요일 · 공휴일</th><td class="off">휴진</td></tr>
+          </tbody></table>
+          <div class="callnum"><span>진료 · 검진 예약</span><b>02-000-0000</b></div>
+        </div>
+        <div class="box">
+          <h3>오시는 길</h3>
+          <div class="map" role="img" aria-label="지도"><div>📍 서울 강남구 테헤란로 000, 4층<br><a class="btn n" style="margin-top:12px" href="https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">네이버 지도 보기</a></div></div>
           <ul class="way">
             <li><b>지하철</b>2호선 강남역 3번 출구, 도보 3분</li>
             <li><b>버스</b>강남역 정류장 하차</li>
-            <li><b>주차</b>건물 지하, 진료 시 2시간 무료</li>
+            <li><b>주차</b>건물 지하주차장, 진료 시 2시간 무료</li>
           </ul>
-          <a class="btn dark" href="https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">네이버 지도에서 길찾기</a>
         </div>
       </div>
     </div>
   </section>
-  <section class="news" id="news">
+
+  <!-- ===== 소식 · FAQ ===== -->
+  <section class="sec news" id="news">
     <div class="wrap grid">
       <div>
-        <h2>공지사항</h2>
+        <h3>병원소식</h3>
         <div class="list">
           <a href="#"><span>추석 연휴 진료 안내</span><time>2026.09.20</time></a>
-          <a href="#"><span>독감 예방접종 시작 안내</span><time>2026.09.15</time></a>
-          <a href="#"><span>야간진료(화·목) 운영 시간 변경</span><time>2026.08.30</time></a>
+          <a href="#"><span>2026-2027 독감 예방접종 시작</span><time>2026.09.15</time></a>
+          <a href="#"><span>야간진료(화·목) 운영 안내</span><time>2026.08.30</time></a>
           <a href="#"><span>건강검진 예약 방법 안내</span><time>2026.08.10</time></a>
         </div>
       </div>
       <div>
-        <h2>자주 묻는 질문</h2>
-        <details><summary>예약 없이 방문해도 되나요?</summary><p>가능합니다. 다만 예약하시면 대기 시간이 줄어듭니다.</p></details>
-        <details><summary>건강검진 결과는 언제 나오나요?</summary><p>검사 항목에 따라 다르며, 접수할 때 안내해 드립니다.</p></details>
-        <details><summary>주차는 어떻게 하나요?</summary><p>건물 지하주차장을 이용하시고 접수처에서 주차 확인을 받으세요.</p></details>
-        <details><summary>준비물은 무엇인가요?</summary><p>신분증과 건강보험증(또는 모바일 신분증)을 지참해 주세요.</p></details>
+        <h3>자주 묻는 질문</h3>
+        <details class="faq"><summary>예약 없이 방문해도 되나요?</summary><p>가능합니다. 다만 예약하시면 대기 시간이 줄어듭니다.</p></details>
+        <details class="faq"><summary>내시경 전날 주의할 점이 있나요?</summary><p>검사 전날 저녁 9시 이후 금식해 주세요. 자세한 안내는 예약 시 문자로 보내 드립니다.</p></details>
+        <details class="faq"><summary>건강검진 결과는 언제 나오나요?</summary><p>검사 항목에 따라 다르며, 접수할 때 안내해 드립니다.</p></details>
+        <details class="faq"><summary>주차는 어떻게 하나요?</summary><p>건물 지하주차장을 이용하시고 접수처에서 주차 확인을 받으세요.</p></details>
       </div>
     </div>
   </section>
 </main>
-<footer>
-  <div class="wrap">
-    <a class="logo" href="#top">하늘내과의원</a>
-    서울 강남구 테헤란로 000, 4층 | 대표전화 02-000-0000 | 사업자등록번호 000-00-00000 | 대표자 김하늘
-    <p class="legal">본 홈페이지는 제작 데모이며 모든 정보는 가상입니다. 진료 결과와 효과는 개인에 따라 다를 수 있으며, 의료행위에 관한 안내는 의료법 및 의료광고 심의 기준을 준수합니다. 의료법 제56조에 따라 치료경험담, 과장·비교 표현은 게시하지 않습니다.</p>
-  </div>
-</footer>
+
+<footer><div class="wrap">
+  <span class="logo"><svg viewBox="0 0 64 64" aria-hidden="true" style="width:40px;height:40px"><rect width="64" height="64" rx="14" fill="#13387A"/><path d="M28 14h8v14h14v8H36v14h-8V36H14v-8h14z" fill="#29A3E0"/></svg><span><b>하늘<span>내과</span>의원</b><small>HANEUL INTERNAL MEDICINE</small></span></span>
+  <p class="meta">서울 강남구 테헤란로 000, 4층 | 대표전화 02-000-0000<br>사업자등록번호 000-00-00000 | 대표자 김하늘</p>
+  <p class="legal">본 홈페이지는 제작 데모이며 모든 정보는 가상입니다. 의료법 제56조에 따라 치료경험담, 과장·비교 표현은 게시하지 않습니다.<br>COPYRIGHT © 2026 하늘내과의원 ALL RIGHTS RESERVED.</p>
+</div></footer>
+
+<nav class="quick" aria-label="빠른 메뉴">
+  <a href="tel:020000000"><i>☎</i>전화예약</a>
+  <a class="k" href="#"><i>톡</i>카톡상담</a>
+  <a href="#doctors"><i>👨‍⚕️</i>의료진</a>
+  <a href="#info"><i>📍</i>오시는길</a>
+  <a class="top" href="#top"><i>▲</i>TOP</a>
+</nav>
+
 <nav class="mbar" aria-label="빠른 연락">
   <a href="tel:020000000">전화</a>
   <a href="#">카카오톡</a>
-  <a class="c" href="#book">온라인 예약</a>
+  <a href="#info">오시는길</a>
+  <a href="#checkup">검진예약</a>
 </nav>
+
 <script>
+/* =========================================================
+   팝업 설정 — 여기만 고치면 됩니다
+   img: images 폴더의 파일명 / link: 클릭 시 이동(없으면 "")
+   이미지가 없으면 title·text로 만든 기본 팝업이 대신 보입니다
+   ========================================================= */
+var POPUPS = [
+  {id:'p1', img:'popup1.png', link:'', tag:'공지', title:'2026-2027<br>독감 예방접종 시작', text:'예약 없이 방문 접종 가능합니다.<br><em>평일 09:00 – 18:00</em>'},
+  {id:'p2', img:'popup2.png', link:'', tag:'검진', title:'국가건강검진<br>연말 마감 전 예약하세요', text:'12월은 예약이 몰립니다.<br><em>02-000-0000</em>'},
+  {id:'p3', img:'popup3.png', link:'', tag:'진료안내', title:'화 · 목<br>야간진료 20:30까지', text:'퇴근 후에도 진료받으실 수 있습니다.'}
+];
+
 (function(){
-  var h=document.getElementById('site');
-  function f(){h.classList.toggle('solid',window.scrollY>window.innerHeight*0.6)}
-  f();window.addEventListener('scroll',f,{passive:true});
+  var box=document.getElementById('popups'),today=new Date().toISOString().slice(0,10),first=true;
+  POPUPS.forEach(function(p){
+    var hide=null;try{hide=localStorage.getItem('pop_'+p.id)}catch(e){}
+    if(hide===today)return;
+    var el=document.createElement('div');el.className='pop'+(first?' first':'');first=false;
+    var fallback='<div class="ph"><small>'+p.tag+'</small><b>'+p.title+'</b><p>'+p.text+'</p></div>';
+    var inner='<img class="pimg" src="images/'+p.img+'" alt="'+p.title.replace(/<br>/g,' ')+'">';
+    el.innerHTML=(p.link?'<a href="'+p.link+'">'+inner+'</a>':inner)+
+      '<div class="pbar"><button type="button" data-a="day">오늘 하루 보지 않기</button><button type="button" data-a="close">닫기 ✕</button></div>';
+    var im=el.querySelector('.pimg');
+    im.onerror=function(){var w=document.createElement('div');w.innerHTML=fallback;im.replaceWith(w.firstChild)};
+    el.addEventListener('click',function(e){
+      var a=e.target.getAttribute&&e.target.getAttribute('data-a');if(!a)return;
+      if(a==='day'){try{localStorage.setItem('pop_'+p.id,today)}catch(err){}}
+      el.remove();
+      var rest=box.querySelectorAll('.pop');if(rest.length)rest[0].classList.add('first');
+    });
+    box.appendChild(el);
+  });
 })();
+
+/* 이미지 자리: 새 이미지(data-img)가 있으면 사용, 없으면 기존 사진(data-fallback) */
+function setImg(img,name,fb){
+  img.onerror=function(){img.onerror=null;if(fb)img.src='images/'+fb;else img.remove()};
+  img.src='images/'+name;
+}
+document.querySelectorAll('img[data-img]').forEach(function(i){setImg(i,i.dataset.img,i.dataset.fallback)});
+
+/* 메인 슬라이드 */
 (function(){
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var hv=document.getElementById('heroVideo');
-  hv.src='videos/hero.mp4';hv.play&&hv.play().catch(function(){});
-  var tv=document.getElementById('tourVideo');
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){tv.src='videos/tour.mp4';tv.play().catch(function(){});o.disconnect()}})},{rootMargin:'200px'}).observe(tv);
-  }else{tv.src='videos/tour.mp4';tv.play().catch(function(){})}
+  var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,timer=null,playing=true,DUR=6000,t0=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  slides.forEach(function(s,i){
+    var img=document.createElement('img');img.alt='';
+    // main1.png 등이 있으면 배경으로 사용, 없으면 기존 사진. 글씨는 HTML로 위에 표시
+    img.onload=function(){img.dataset.ok='1'};
+    img.onerror=function(){img.onerror=null;img.src='images/'+s.dataset.fallback};
+    img.src='images/'+s.dataset.img;
+    s.insertBefore(img,s.firstChild);
+    if(s.dataset.video&&!reduce){
+      var v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.autoplay=true;v.setAttribute('aria-hidden','true');
+      v.onloadeddata=function(){if(!img.dataset.ok){s.insertBefore(v,img.nextSibling)}};
+      v.src='videos/'+s.dataset.video;
+    }
+  });
+  var num=document.getElementById('vnum'),bar=document.getElementById('vbar');
+  function show(n){slides[cur].classList.remove('on');cur=(n+slides.length)%slides.length;slides[cur].classList.add('on');num.textContent=('0'+(cur+1)).slice(-2)+' / '+('0'+slides.length).slice(-2);t0=Date.now()}
+  function tick(){if(playing&&!reduce){var p=Math.min(1,(Date.now()-t0)/DUR);bar.style.width=(p*100)+'%';if(p>=1)show(cur+1)}requestAnimationFrame(tick)}
+  t0=Date.now();requestAnimationFrame(tick);
+  document.getElementById('vnext').onclick=function(){show(cur+1)};
+  document.getElementById('vprev').onclick=function(){show(cur-1)};
+  var st=document.getElementById('vstop');
+  st.onclick=function(){playing=!playing;st.textContent=playing?'Ⅱ':'▶';st.setAttribute('aria-label',playing?'자동 넘김 멈춤':'자동 넘김 시작');t0=Date.now()-(parseFloat(bar.style.width)||0)/100*DUR};
+  if(reduce){playing=false;st.textContent='▶'}
 })();
+
+/* 둘러보기 영상 */
 (function(){
-  var mb=document.getElementById('menuBtn'),g=document.getElementById('gnb');
-  mb.addEventListener('click',function(){var o=g.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'✕':'☰'});
-  g.addEventListener('click',function(e){if(e.target.tagName==='A'){g.classList.remove('open');mb.textContent='☰';mb.setAttribute('aria-expanded','false')}});
+  var v=document.getElementById('tourVideo');if(!v||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  v.style.display='none';
+  v.onloadeddata=function(){v.style.display='block';v.style.width='100%';v.style.height='100%';v.style.objectFit='cover';v.play().catch(function(){})};
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){v.src='videos/tour.mp4';o.disconnect()}}).observe(v.parentElement)}
+  else v.src='videos/tour.mp4';
 })();
+
+/* 메뉴 고정 그림자 */
+(function(){var b=document.getElementById('gnbBar');window.addEventListener('scroll',function(){b.classList.toggle('fix',scrollY>96)},{passive:true})})();
+
+/* 모바일 메뉴: PC 메뉴를 복사해 아코디언으로 */
+(function(){
+  var d=document.getElementById('drawer'),btn=document.getElementById('menuBtn');
+  document.querySelectorAll('#gnb>li').forEach(function(li){
+    var a=li.querySelector('a'),sub=li.querySelectorAll('ul a');
+    if(!sub.length){var x=document.createElement('a');x.href=a.getAttribute('href');x.textContent=a.textContent;x.style.cssText='display:block;padding:16px 0;font-weight:700;border-bottom:1px solid #E3E7EE';d.appendChild(x);return}
+    var det=document.createElement('details'),s=document.createElement('summary'),w=document.createElement('div');
+    s.textContent=a.textContent;det.appendChild(s);
+    sub.forEach(function(sa){var x=document.createElement('a');x.href=sa.getAttribute('href');x.textContent=sa.textContent;w.appendChild(x)});
+    det.appendChild(w);d.appendChild(det);
+  });
+  btn.onclick=function(){var o=d.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'✕':'☰'};
+  d.addEventListener('click',function(e){if(e.target.tagName==='A'){d.classList.remove('open');btn.textContent='☰';btn.setAttribute('aria-expanded','false')}});
+})();
+
+/* 오늘 진료 상태 (한국 시간) */
 (function(){
   var parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
   var wk={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6},day=0,m=0;
   parts.forEach(function(p){if(p.type==='weekday')day=wk[p.value];if(p.type==='hour')m+=(+p.value)*60;if(p.type==='minute')m+=(+p.value)});
   var hrs={0:null,1:[540,1080],2:[540,1230],3:[540,1080],4:[540,1230],5:[540,1080],6:[540,780]}[day];
-  function f(x){return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')}
-  var el=document.getElementById('now'),tx=document.getElementById('nowText'),msg,open=false;
-  if(!hrs){msg='오늘은 휴진입니다. 내일 오전 9시에 진료합니다.'}
-  else{
-    var lunch=day>=1&&day<=5&&m>=780&&m<840;
-    open=m>=hrs[0]&&m<hrs[1]&&!lunch;
-    if(lunch)msg='점심시간입니다. 오후 2시에 진료를 다시 시작합니다.';
-    else if(open)msg='지금 진료 중, 오늘은 '+f(hrs[1])+'까지 진료합니다.';
-    else if(m<hrs[0])msg='오늘은 오전 9시부터 진료합니다.';
-    else msg='오늘 진료가 끝났습니다. '+(day===6?'월요일':'내일')+' 오전 9시에 진료합니다.';
-  }
-  tx.textContent=msg;if(!open)el.classList.add('closed');
+  var tag=document.getElementById('openTag'),txt='오늘 휴진',open=false;
+  if(hrs){var lunch=day>=1&&day<=5&&m>=780&&m<840;open=m>=hrs[0]&&m<hrs[1]&&!lunch;txt=lunch?'점심시간':open?'지금 진료중':'진료 종료'}
+  tag.textContent=txt;if(!open)tag.classList.add('off');
   document.querySelectorAll('tr[data-days]').forEach(function(tr){if(tr.dataset.days.split(',').indexOf(String(day))>-1)tr.classList.add('today')});
-})();
-(function(){
-  var dt=document.getElementById('date');dt.min=new Date().toISOString().slice(0,10);
-  document.getElementById('bookForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    var ok=['dept','date','name','tel'].every(function(i){return document.getElementById(i).value.trim()})&&document.getElementById('agree').checked;
-    if(!ok){alert('진료과, 날짜, 이름, 연락처를 입력하고 개인정보 수집에 동의해 주세요.');return}
-    document.getElementById('formBody').style.display='none';
-    document.getElementById('done').style.display='block';
-  });
 })();
 </script>
 </body>
