@@ -99,8 +99,13 @@ button{font:inherit;cursor:pointer}
 
 /* ---------- 메인 슬라이드 ---------- */
 .visual{position:relative;height:640px;overflow:hidden;background:var(--navy)}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s}
-.slide.on{opacity:1;z-index:1}
+.slide{position:absolute;inset:0;transform:translateX(100%);transition:transform .9s cubic-bezier(.65,0,.35,1);overflow:hidden}
+.slide.on{transform:translateX(0);z-index:1}
+.slide.on>img,.slide.on>video{animation:kb 7s ease-out forwards}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+.slide.on .txt>*{animation:up .8s .5s both}
+.slide.on .txt>h2{animation-delay:.65s}.slide.on .txt>p{animation-delay:.8s}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .slide>img,.slide>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,26,58,.82) 0%,rgba(8,26,58,.45) 45%,rgba(8,26,58,0) 75%)}
 .slide .txt{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;color:#fff}
@@ -264,7 +269,7 @@ footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
   .mbar a:last-child{border-right:0;background:var(--sky)}
   footer{padding-bottom:110px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide{transition:none}.dcard img{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide{transition:none}.slide.on>img,.slide.on>video,.slide.on .txt>*{animation:none}.dcard img{transition:none}}
 </style>
 </head>
 <body>
@@ -557,11 +562,15 @@ document.querySelectorAll('img[data-img]').forEach(function(i){setImg(i,i.datase
     }
   });
   var num=document.getElementById('vnum'),bar=document.getElementById('vbar');
-  function show(n){slides[cur].classList.remove('on');cur=(n+slides.length)%slides.length;slides[cur].classList.add('on');num.textContent=('0'+(cur+1)).slice(-2)+' / '+('0'+slides.length).slice(-2);t0=Date.now()}
+  function show(n,dir){
+    dir=dir||1;var old=slides[cur];cur=(n+slides.length)%slides.length;var nw=slides[cur];if(old===nw)return;
+    nw.style.transition='none';nw.style.transform='translateX('+(dir*100)+'%)';void nw.offsetWidth;nw.style.transition='';nw.style.transform='';
+    old.classList.remove('on');old.style.transform='translateX('+(-dir*100)+'%)';nw.classList.add('on');num.textContent=('0'+(cur+1)).slice(-2)+' / '+('0'+slides.length).slice(-2);t0=Date.now()}
   function tick(){if(playing&&!reduce){var p=Math.min(1,(Date.now()-t0)/DUR);bar.style.width=(p*100)+'%';if(p>=1)show(cur+1)}requestAnimationFrame(tick)}
   t0=Date.now();requestAnimationFrame(tick);
   document.getElementById('vnext').onclick=function(){show(cur+1)};
-  document.getElementById('vprev').onclick=function(){show(cur-1)};
+  document.getElementById('vprev').onclick=function(){show(cur-1,-1)};
+  (function(){var v=document.getElementById('visual'),x0=null;v.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});v.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(dx<0?cur+1:cur-1,dx<0?1:-1);x0=null},{passive:true})})();
   var st=document.getElementById('vstop');
   st.onclick=function(){playing=!playing;st.textContent=playing?'Ⅱ':'▶';st.setAttribute('aria-label',playing?'자동 넘김 멈춤':'자동 넘김 시작');t0=Date.now()-(parseFloat(bar.style.width)||0)/100*DUR};
   if(reduce){playing=false;st.textContent='▶'}
