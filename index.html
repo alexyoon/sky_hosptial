@@ -122,7 +122,7 @@ button{font:inherit;cursor:pointer}
 .vnav .bar{flex:0 0 220px;height:3px;background:rgba(255,255,255,.3)}
 .vnav .bar i{display:block;height:100%;width:0;background:#fff}
 .vnav button{background:none;border:1px solid rgba(255,255,255,.5);color:#fff;width:36px;height:36px;border-radius:50%}
-@media (max-width:860px){.visual{height:auto;aspect-ratio:3/4;max-height:620px}.slide::after{background:linear-gradient(0deg,rgba(8,26,58,.88) 0%,rgba(8,26,58,.3) 60%,rgba(8,26,58,.1) 100%)}.slide .txt{justify-content:flex-end;padding-bottom:90px}.slide p{font-size:1rem}.vnav .bar{flex-basis:120px}}
+@media (max-width:860px){.slide>img,.slide>video{object-position:72% center}.visual{height:auto;aspect-ratio:3/4;max-height:620px}.slide::after{background:linear-gradient(0deg,rgba(8,26,58,.88) 0%,rgba(8,26,58,.3) 60%,rgba(8,26,58,.1) 100%)}.slide .txt{justify-content:flex-end;padding-bottom:90px}.slide p{font-size:1rem}.vnav .bar{flex-basis:120px}}
 
 /* ---------- 센터 바로가기 ---------- */
 .centers{position:relative;z-index:5;margin-top:-60px}
@@ -316,23 +316,23 @@ footer .legal{margin-top:20px;font-size:.78rem;color:#6f82a3}
 <div class="drawer" id="drawer"></div>
 
 <main id="top">
-  <!-- ===== 메인 슬라이드: images/main1.png ~ main3.png (1920x640 권장) ===== -->
+  <!-- ===== 메인 슬라이드: images/main1.jpg ~ main3.jpg (가로 16:9) ===== -->
   <section class="visual" id="visual" aria-roledescription="carousel" aria-label="메인 소개">
-    <div class="slide on" data-img="main1.png" data-fallback="hero.png" data-video="hero.mp4">
+    <div class="slide on" data-img="main1.jpg" data-fallback="hero.png" data-video="hero.mp4">
       <div class="wrap txt">
         <span class="tag">강남역 3번 출구 도보 3분</span>
         <h2>기다림은 짧게,<br><span>설명은 충분하게</span></h2>
         <p>내과 전문의가 진료부터 검사, 결과 설명까지 직접 책임집니다.</p>
       </div>
     </div>
-    <div class="slide" data-img="main2.png" data-fallback="tour4.png">
+    <div class="slide" data-img="main2.jpg" data-fallback="tour4.png">
       <div class="wrap txt">
         <span class="tag">내시경센터</span>
         <h2>편안한 수면내시경,<br><span>당일 검사 · 당일 설명</span></h2>
         <p>소화기내시경 세부전문의가 위·대장내시경을 직접 시행합니다.</p>
       </div>
     </div>
-    <div class="slide" data-img="main3.png" data-fallback="tour1.png">
+    <div class="slide" data-img="main3.jpg" data-fallback="tour1.png">
       <div class="wrap txt">
         <span class="tag">건강검진센터</span>
         <h2>국가검진부터 종합검진까지<br><span>한 번의 방문으로</span></h2>
