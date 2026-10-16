@@ -451,6 +451,74 @@ footer .legal{border-top-color:#1b3463}
   section[id]{scroll-margin-top:124px}
 }
 
+
+/* ===== 흰색 + 파란색 테마 (최종 덮어쓰기) ===== */
+:root{--blue:#1f6bff;--blue-dark:#0d4fd8;--blue-soft:#eef4ff;--gold:#1f6bff;--ink:#14213d;--line:#e3eaf6;--bg2:#f5f8ff}
+.topbar{background:#f3f7ff;color:#5b6676}
+.topbar b,.topbar a:hover{color:#1f6bff}
+header.site{background:#fff;border-bottom:1px solid #e6edf8}
+header.site .logo{color:#14213d}
+header.site .logo i{background:#1f6bff;color:#fff}
+nav.gnb>ul>li>a{color:#14213d}
+nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:#1f6bff}
+nav.gnb .sub{border-top-color:#1f6bff}
+.menu-btn{color:#14213d}
+.btn{border-radius:999px}
+.btn.primary,header.site .btn.primary{background:#1f6bff;color:#fff;border:0}
+.btn.primary:hover,header.site .btn.primary:hover{background:#0d4fd8;color:#fff}
+.btn.ghost{background:#fff;color:#1f6bff;border:1.5px solid #1f6bff}
+/* 메인: 사진 위 투명 메뉴 */
+header.site.over{background:transparent;border-bottom:0}
+header.site.over .logo{color:#fff}
+header.site.over .logo i{background:#fff;color:#1f6bff}
+header.site.over nav.gnb>ul>li>a{color:#fff}
+header.site.over nav.gnb>ul>li>a:hover{color:#cfe0ff}
+header.site.over .menu-btn{color:#fff}
+header.site.over .btn.primary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.9)}
+header.site.over .btn.primary:hover{background:#fff;color:#1f6bff}
+header.site.over.solid{background:#fff;box-shadow:0 4px 18px rgba(20,60,140,.08)}
+header.site.over.solid .logo{color:#14213d}
+header.site.over.solid .logo i{background:#1f6bff;color:#fff}
+header.site.over.solid nav.gnb>ul>li>a{color:#14213d;text-shadow:none}
+header.site.over.solid nav.gnb>ul>li>a:hover{color:#1f6bff}
+header.site.over.solid .menu-btn{color:#14213d}
+header.site.over.solid .btn.primary{background:#1f6bff;color:#fff;border-color:#1f6bff}
+@media (max-width:1100px){header.site.over nav.gnb>ul>li>a,header.site.over.solid nav.gnb>ul>li>a{color:#14213d;text-shadow:none}}
+/* 푸터·우측 메뉴 */
+footer{background:#1f6bff;color:#dbe7ff}
+footer .logo{color:#fff}
+footer .logo i{background:#fff;color:#1f6bff}
+footer .legal{border-top-color:rgba(255,255,255,.25)}
+footer .ext a{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+footer .replay{color:#dbe7ff}
+.qside svg,.qside .n{color:#1f6bff}
+.qside .top{background:#1f6bff}
+/* 포인트 색 */
+.box li::before{background:#1f6bff}
+.book{background:linear-gradient(135deg,#0d4fd8,#3b82ff)}
+.book .eyebrow{color:#cfe2ff!important}
+.book li::before{color:#cfe2ff}
+.pop .pf{background:#1f6bff}
+.pop .pf button:hover{background:#0d4fd8}
+.pop .pf button+button{border-left-color:rgba(255,255,255,.3)}
+/* 메인 슬라이드·타일 */
+.slide::after{background:linear-gradient(180deg,rgba(10,45,130,.30) 0%,rgba(10,45,130,.55) 100%)!important}
+.kw .en::after,.kw .ko::before{background:#9cc3ff}
+.dots button.on{background:#fff}
+.icon-tile{background:#eef4ff}
+.icon-tile .cap{background:linear-gradient(0deg,rgba(18,80,210,.92),rgba(18,80,210,0))}
+.icon-tile .cap i{color:#cfe0ff}
+/* 건강검진센터 */
+.ctabs a:first-child{background:#1f6bff;border-color:#1f6bff}
+.ctabs a:hover{color:#1f6bff}
+.tri .mid{background:#1f6bff}
+.tri .mid em{color:#cfe2ff}
+.why h2{color:#1f6bff}
+.why p{color:#14213d}
+.circ .disc,.circ:nth-child(2) .disc{background:#eaf1ff}
+.circ .bar{background:#1f6bff}
+.circ:nth-child(2) .bar{background:#0d4fd8}
+
 </style>
 </head>
 <body>
