@@ -358,6 +358,62 @@ nav.gnb a.on{color:var(--blue)}
 @media (max-width:560px){.timeline,.other{grid-template-columns:1fr}.sub-hero .cta .btn{flex:1 1 100%}.card dl{grid-template-columns:1fr}.card dt{margin-top:4px}}
 
 
+/* 우측 빠른 메뉴 */
+.qside{position:fixed;right:18px;top:50%;transform:translateY(-35%);z-index:60;background:#fff;border-radius:60px;box-shadow:0 8px 30px rgba(0,20,60,.15);padding:14px 8px 10px;display:flex;flex-direction:column;align-items:center;width:92px}
+.qside a{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:#1b2430;padding:10px 0;width:100%;border-bottom:1px solid var(--line);text-align:center}
+.qside a:hover{color:var(--blue)}
+.qside svg{width:34px;height:34px;color:#001b46}
+.qside .n{font-size:34px;line-height:34px;font-weight:900;color:#001b46;font-family:Arial,sans-serif}
+.qside .top{margin-top:10px;width:58px;height:58px;border-radius:50%;background:#001b46;color:#fff;border:0;font-weight:800;font-size:16px}
+@media (max-width:820px){.qside{display:none}}
+/* 서브 비주얼 + 탭 (삼성탑형) */
+.subvis{position:relative;height:150px;padding:0;overflow:hidden;background:#e9e4dd}
+.subvis .bg{position:absolute;inset:-20px;background-size:cover;background-position:center 30%;filter:blur(6px);opacity:.75}
+.ctabs{position:absolute;left:0;right:0;bottom:0;display:flex;max-width:1610px;background:#fff}
+.ctabs a{flex:1;display:flex;align-items:center;justify-content:center;height:62px;border:1px solid #dcdcdc;border-left:0;font-size:19px;color:#333;background:#fff}
+.ctabs a:first-child{flex:0 0 23%;background:#c8a98a;color:#fff;border-color:#c8a98a}
+.ctabs a:hover{color:var(--blue)}.ctabs a:first-child:hover{color:#fff}
+.bigtitle{text-align:center;padding:110px 0 90px}
+.bigtitle h1{font-size:clamp(34px,6.4vw,88px);font-weight:900;letter-spacing:-.04em;color:#2d2d2d;line-height:1.1}
+.bigtitle p{margin-top:22px;font-size:clamp(14px,2.6vw,38px);letter-spacing:.42em;color:#999;font-weight:300}
+.tri{display:grid;grid-template-columns:1fr 1fr 1fr;height:390px;padding:0;max-width:1640px;margin:0 auto}
+.tri .ph{height:100%}
+.tri .mid{position:relative;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;background:#0a2a63}
+.tri .mid .ph{position:absolute;inset:0;opacity:.28}
+.tri .mid p{position:relative;font-size:clamp(20px,2.4vw,38px);line-height:1.7;font-family:"Nanum Myeongjo","Noto Serif KR",serif;font-weight:700}
+.tri .mid em{font-style:normal;color:#e7c9a0}
+.why{text-align:center;padding:90px 0 40px}
+.why h2{font-size:clamp(28px,4.4vw,58px);color:#8a7b6a;font-weight:800;letter-spacing:-.03em}
+.why p{font-size:clamp(22px,3.6vw,52px);color:#11265a;font-family:"Nanum Myeongjo","Noto Serif KR",serif;line-height:1.35;margin-top:28px}
+.circles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:60px 0 0}
+.circ{position:relative;display:block;text-align:center}
+.circ .disc{position:relative;width:86%;margin:0 auto;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#e8edf4}
+.circ:nth-child(2) .disc{background:#f6ece4}
+.circ .disc .ph{position:absolute;inset:0;background:transparent}
+.circ .bar{position:relative;margin-top:-58px;height:120px;border-radius:60px 60px 0 0;background:#0a1f4d;color:#fff;display:flex;align-items:center;justify-content:center;gap:40px;font-size:clamp(22px,3vw,44px);font-weight:800;letter-spacing:-.03em}
+.circ:nth-child(2) .bar{background:#7d6a58}
+.circ .bar small{font-size:clamp(14px,1.6vw,24px);font-weight:500}
+.circ:hover .bar{filter:brightness(1.15)}
+.cdesc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;padding:46px 0 90px}
+.cdesc span{display:block;font-size:clamp(16px,2vw,30px);color:#444;font-weight:300;letter-spacing:-.03em}
+.cdesc b{display:block;font-size:clamp(20px,2.4vw,36px);color:#222;margin:4px 0 26px;letter-spacing:-.03em}
+.cdesc p{font-size:clamp(14px,1.6vw,24px);color:#555;line-height:1.65;letter-spacing:-.03em}
+.fade-strip{height:200px;padding:0;position:relative;overflow:hidden}
+.fade-strip .ph{position:absolute;inset:0;opacity:.35}
+@media (max-width:820px){
+  .subvis{height:auto;padding-top:90px}
+  .ctabs{position:relative;flex-wrap:wrap}
+  .ctabs a{flex:1 1 50%;height:48px;font-size:15px;border-left:1px solid #dcdcdc}
+  .ctabs a:first-child{flex:1 1 100%}
+  .bigtitle{padding:60px 0 50px}
+  .tri{grid-template-columns:1fr;height:auto}
+  .tri .ph{aspect-ratio:16/9}.tri .mid{padding:44px 16px}
+  .circles,.cdesc{grid-template-columns:1fr}
+  .circ .bar{height:80px;margin-top:-40px;gap:20px}
+  .cdesc{padding-bottom:50px;gap:34px}
+  .cdesc b{margin-bottom:10px}
+}
+
 /* ===== 테마: 남색 + 골드, 드롭다운 메뉴 ===== */
 :root{--blue:#1d4f91;--blue-dark:#001b46;--blue-soft:#eef2f8;--gold:#c9a87c}
 .topbar{background:#00122f;color:#b9c4d6}
@@ -473,7 +529,12 @@ footer .legal{border-top-color:#1b3463}
   <div>서울 강남구 테헤란로 000, 4층 · 대표전화 02-000-0000 · 사업자등록번호 000-00-00000 · 대표자 김하늘</div>
   <div class="legal">본 홈페이지는 제작 데모이며 모든 정보는 가상입니다. 이 페이지의 의학 정보는 일반적인 안내이며 개인별 진단·치료를 대신하지 않습니다. 검사·치료 결과와 회복 기간은 개인에 따라 다를 수 있습니다. 의료법 제56조에 따라 치료경험담, 과장·비교 표현은 게시하지 않습니다. <a href="about.html#fee" style="text-decoration:underline">비급여 안내</a> · <a href="#" style="text-decoration:underline">개인정보처리방침</a> · 이메일무단수집거부</div>
 </div></footer>
-<div class="float" aria-label="빠른 상담"><a class="kk" href="#" aria-label="카카오 상담">💬</a><a class="tel" href="tel:020000000" aria-label="전화 상담">📞</a></div>
+<div class="qside" aria-label="빠른 메뉴">
+  <a href="about.html#location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>오시는길</a>
+  <a href="about.html#doctors"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 21c.6-4.4 3.6-7 7.5-7s6.9 2.6 7.5 7M9.5 14.5l2.5 3 2.5-3M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>의료진 소개</a>
+  <a href="news.html#blog"><b class="n">N</b>공식 블로그</a>
+  <button type="button" class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">TOP</button>
+</div>
 <div class="mbar"><a class="a" href="tel:020000000">전화</a><a class="b" href="#">카카오</a><a class="c" href="index.html#book">온라인 예약</a></div>
 
 <script>
@@ -490,7 +551,7 @@ document.addEventListener('click',function(e){
 document.querySelectorAll('.ph[data-img]').forEach(function(box){
   var img=new Image();img.alt=box.dataset.alt||'';img.loading=box.closest('.sub-hero')?'eager':'lazy';
   img.onload=function(){var t=box.querySelector('.tag');t&&t.remove()};
-  img.onerror=function(){box.classList.add('empty')};
+  img.onerror=function(){if(box.dataset.fb&&!img.dataset.fb){img.dataset.fb=1;img.src='images/'+box.dataset.fb}else{box.classList.add('empty')}};
   img.src='images/'+box.dataset.img;box.prepend(img);
 });
 // 탭 하이라이트 (현재 보고 있는 구역)
