@@ -340,7 +340,6 @@ section[id]{scroll-margin-top:136px}
 .loc .ph{min-height:340px;border-radius:var(--radius)}
 nav.gnb ul{gap:24px}
 nav.gnb a.on{color:var(--blue)}
-@media (min-width:1101px){nav.gnb a.on{box-shadow:inset 0 -2px 0 var(--blue);padding-bottom:4px}}
 @media (max-width:1100px){
   nav.gnb{position:fixed;inset:68px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);padding:8px 20px 18px;display:none}
   nav.gnb.open{display:block}
@@ -358,17 +357,55 @@ nav.gnb a.on{color:var(--blue)}
 }
 @media (max-width:560px){.timeline,.other{grid-template-columns:1fr}.sub-hero .cta .btn{flex:1 1 100%}.card dl{grid-template-columns:1fr}.card dt{margin-top:4px}}
 
+
+/* ===== 테마: 남색 + 골드, 드롭다운 메뉴 ===== */
+:root{--blue:#1d4f91;--blue-dark:#001b46;--blue-soft:#eef2f8;--gold:#c9a87c}
+.topbar{background:#00122f;color:#b9c4d6}
+.topbar a:hover{color:#fff}
+header.site{background:#001b46;border-bottom:0;backdrop-filter:none}
+header.site .wrap{height:76px}
+header.site .logo{color:#fff}
+header.site .logo i{background:#fff;color:#001b46}
+header.site .btn.primary{background:var(--gold);color:#001b46}
+header.site .btn.primary:hover{background:#e0c39b}
+.menu-btn{color:#fff}
+nav.gnb>ul>li{position:relative}
+nav.gnb>ul>li>a{color:#fff;display:block;line-height:76px;font-size:16.5px}
+nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:var(--gold)}
+nav.gnb .sub{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;min-width:170px;padding:8px 0;border-top:3px solid var(--gold);box-shadow:0 14px 30px rgba(0,20,60,.18);display:none;z-index:70}
+nav.gnb li:hover .sub,nav.gnb li:focus-within .sub{display:block}
+nav.gnb .sub a{display:block;padding:9px 20px;font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap;text-align:center}
+nav.gnb .sub a:hover{background:var(--blue-soft);color:var(--blue)}
+section{scroll-margin-top:84px}
+section[id]{scroll-margin-top:144px}
+.subnav{top:76px}
+footer{background:#001b46;color:#9fb0cb}
+footer .legal{border-top-color:#1b3463}
+.btn.primary{background:var(--blue-dark)}
+.btn.primary:hover{background:var(--blue)}
+.btn.ghost{color:var(--blue-dark);border-color:var(--blue-dark)}
+@media (max-width:1100px){
+  header.site .wrap{height:64px}
+  nav.gnb{position:absolute;inset:100% 0 auto 0;max-height:calc(100vh - 110px);overflow:auto;box-shadow:0 14px 30px rgba(0,20,60,.2)}
+  nav.gnb>ul>li>a{color:var(--ink);line-height:1.4;font-weight:700}
+  nav.gnb>ul>li>a.on{color:var(--blue)}
+  nav.gnb .sub{position:static;transform:none;display:flex;flex-wrap:wrap;gap:4px 14px;box-shadow:none;border:0;padding:4px 0 12px;min-width:0}
+  nav.gnb .sub a{padding:4px 0;border:0;font-size:13.5px;color:var(--sub);text-align:left}
+  .subnav{top:64px}
+  section[id]{scroll-margin-top:124px}
+}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">본문 바로가기</a>
 <div class="topbar"><div class="wrap">
   <span>강남역 3번 출구 도보 3분 · 주차 2시간 무료</span>
-  <span>진료문의 <b>02-000-0000</b></span>
+  <span><a href="news.html#blog">공식블로그</a> · <a href="about.html#location">위치안내</a> · 진료문의 <b>02-000-0000</b></span>
 </div></div>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html"><i>+</i>하늘내과의원</a>
-  <nav class="gnb" id="gnb" aria-label="주 메뉴"><ul><li><a href="about.html">병원소개</a></li><li><a href="checkup.html">건강검진센터</a></li><li><a href="endoscopy.html">내시경센터</a></li><li><a href="disease.html">내과질환센터</a></li><li><a href="health-clinic.html" class="on" aria-current="page">건강클리닉</a></li><li><a href="vaccination.html">예방접종클리닉</a></li><li><a href="news.html">미디어센터</a></li></ul></nav>
+  <nav class="gnb" id="gnb" aria-label="주 메뉴"><ul><li><a href="about.html">병원소개</a><div class="sub"><a href="about.html#greeting">인사말</a><a href="about.html#doctors">의료진</a><a href="about.html#tour">병원 둘러보기</a><a href="about.html#guide">진료안내</a><a href="about.html#location">오시는 길</a></div></li><li><a href="checkup.html">건강검진센터</a><div class="sub"><a href="checkup.html#national">국가건강검진</a><a href="checkup.html#private">개인종합검진</a><a href="checkup.html#job">채용검진</a></div></li><li><a href="endoscopy.html">내시경센터</a><div class="sub"><a href="endoscopy.html#gastro">위내시경</a><a href="endoscopy.html#colon">대장내시경</a><a href="endoscopy.html#sedation">수면내시경</a><a href="endoscopy.html#polyp">용종절제술</a></div></li><li><a href="disease.html">내과질환센터</a><div class="sub"><a href="disease.html#digestive">소화기질환</a><a href="disease.html#respiratory">호흡기질환</a><a href="disease.html#chronic">만성질환</a><a href="disease.html#endocrine">내분비질환</a><a href="disease.html#allergy">알레르기질환</a></div></li><li><a href="health-clinic.html" class="on" aria-current="page">건강클리닉</a><div class="sub"><a href="health-clinic.html#fluid">수액클리닉</a><a href="health-clinic.html#nosmoke">금연클리닉</a><a href="health-clinic.html#obesity">비만클리닉</a></div></li><li><a href="vaccination.html">예방접종클리닉</a><div class="sub"><a href="vaccination.html#vlist">성인 예방접종</a><a href="vaccination.html#vnational">국가예방접종</a></div></li><li><a href="news.html">미디어센터</a><div class="sub"><a href="news.html#notice">병원소식</a><a href="news.html#column">건강칼럼</a><a href="news.html#blog">공식 블로그</a></div></li></ul></nav>
   <a class="btn primary" href="index.html#book">진료 예약</a>
   <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">☰</button>
 </div></header>
@@ -434,7 +471,7 @@ nav.gnb a.on{color:var(--blue)}
 <footer><div class="wrap">
   <a class="logo" href="index.html"><i>+</i>하늘내과의원</a>
   <div>서울 강남구 테헤란로 000, 4층 · 대표전화 02-000-0000 · 사업자등록번호 000-00-00000 · 대표자 김하늘</div>
-  <div class="legal">본 홈페이지는 제작 데모이며 모든 정보는 가상입니다. 이 페이지의 의학 정보는 일반적인 안내이며 개인별 진단·치료를 대신하지 않습니다. 검사·치료 결과와 회복 기간은 개인에 따라 다를 수 있습니다. 의료법 제56조에 따라 치료경험담, 과장·비교 표현은 게시하지 않습니다. <a href="index.html#fee" style="text-decoration:underline">비급여 안내</a> · <a href="#" style="text-decoration:underline">개인정보처리방침</a> · 이메일무단수집거부</div>
+  <div class="legal">본 홈페이지는 제작 데모이며 모든 정보는 가상입니다. 이 페이지의 의학 정보는 일반적인 안내이며 개인별 진단·치료를 대신하지 않습니다. 검사·치료 결과와 회복 기간은 개인에 따라 다를 수 있습니다. 의료법 제56조에 따라 치료경험담, 과장·비교 표현은 게시하지 않습니다. <a href="about.html#fee" style="text-decoration:underline">비급여 안내</a> · <a href="#" style="text-decoration:underline">개인정보처리방침</a> · 이메일무단수집거부</div>
 </div></footer>
 <div class="float" aria-label="빠른 상담"><a class="kk" href="#" aria-label="카카오 상담">💬</a><a class="tel" href="tel:020000000" aria-label="전화 상담">📞</a></div>
 <div class="mbar"><a class="a" href="tel:020000000">전화</a><a class="b" href="#">카카오</a><a class="c" href="index.html#book">온라인 예약</a></div>
